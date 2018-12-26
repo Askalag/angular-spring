@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 @Repository
-public class UserRepositoryCustomImpl {
+public class UserRepositoryCustomImpl implements UserRepositoryCustom{
 
     private MongoTemplate mongoTemplate;
 
