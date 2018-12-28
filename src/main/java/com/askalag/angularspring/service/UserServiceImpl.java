@@ -22,4 +22,21 @@ public class UserServiceImpl implements UserService{
     public void addUser(User user) {
         userRepository.insert(user);
     }
+
+    @Override
+    public Iterable<User> getAll() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public void updateUser(User user) {
+        userRepository.save(user);
+    }
+
+    @Override
+    public void deleteUser(User user) {
+        userRepository.delete(user);
+    }
+
+
 }
