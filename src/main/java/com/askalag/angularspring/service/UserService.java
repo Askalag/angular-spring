@@ -9,4 +9,7 @@ public interface UserService {
     Iterable<User> getAll();
     void updateUser(User user);
     void deleteUser(User user);
+    void dropCollection();
+
+
 }

@@ -40,5 +40,10 @@ public class UserController {
     public Iterable<User> getAll() {
         return userService.getAll();
     }
+    //for Test
+    @GetMapping("/dropdb")
+    public void dropUserCollection() {
+        userService.dropCollection();
+    }
 
 }

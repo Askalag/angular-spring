@@ -12,4 +12,9 @@ public class UserRepositoryCustomImpl implements UserRepositoryCustom{
     public UserRepositoryCustomImpl(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
     }
+
+    @Override
+    public void dropCollection() {
+        mongoTemplate.dropCollection("users");
+    }
 }
