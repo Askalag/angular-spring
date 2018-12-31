@@ -3,15 +3,17 @@ import { NgModule } from '@angular/core';
 import {Routes, RouterModule} from "@angular/router";
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserComponent } from './shared/user/user.component';
-import { EndComponent } from './end/end.component';
+import { HeaderComponent } from './components/header/header.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { UserComponent } from './shared/models/user/user.component';
+import { EndComponent } from './components/end/end.component';
+import { UserService } from "./services/user.service";
+import { HttpClientModule } from "@angular/common/http";
 
 
 const appRoutes: Routes = [
   { path: "usersList", component: UserListComponent},
-  { path: "", component: AppComponent},
+  //{ path: "", component: AppComponent},
   { path: "users", component: UserListComponent},
   { path: "users", component: UserListComponent},
 ];
@@ -26,9 +28,12 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    UserService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

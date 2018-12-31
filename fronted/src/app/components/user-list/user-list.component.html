@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <br>
+      <br>
+      <br>
+      <h2>User List</h2>
+      <div class="d-flex">
+        <div class="p2 align-self-center">Пример текста и работа с Flex</div>
+        <div class="p2 ml-auto">
+          <form class="form-inline" action="/action_page.php">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search user">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+        </div>
+        &nbsp;
+        <div class="p2">
+            <button class="btn btn-primary" (click)="onGetUsers()">Load all users</button>
+        </div>
+      </div>
+      <br>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Login</th>
+          <th>NickName</th>
+          <th>Age</th>
+          <th>eMail</th>
+          <th>Created</th>
+          <th>Editing</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.id}}</td>
+          <td>{{user.login}}</td>
+          <td>{{user.nickName}}</td>
+          <td>{{user.age}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.date}}</td>
+          <td>
+            <div class="btn-group btn-group-sm">
+              <button type="button" class="btn btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-outline-secondary">Edit</button>
+              <button type="button" class="btn btn-outline-danger">Delete</button>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<app-end></app-end>
