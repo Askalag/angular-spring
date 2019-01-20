@@ -8,8 +8,11 @@ public interface UserService {
     void addUser(User user);
     Iterable<User> getAll();
     void updateUser(User user);
-    void deleteUser(User user);
+    //void deleteUser(User user);
+    void deleteUserById(String id);
     void dropCollection();
+
+    Iterable<User> getAllByNickName(String nickName);
 
 
 }

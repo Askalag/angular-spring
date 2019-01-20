@@ -1,0 +1,12 @@
+GET http://localhost:8080/{POST%20/api/users/}
+
+###
+
+GET http://localhost:8080/{POST%20/api/users/}
+
+###
+
+GET http://localhost:8080/{GET%20/api/users/search}
+
+###
+

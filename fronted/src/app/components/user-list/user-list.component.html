@@ -8,14 +8,15 @@
       <div class="d-flex">
         <div class="p2 align-self-center">Пример текста и работа с Flex</div>
         <div class="p2 ml-auto">
-          <form class="form-inline" action="/action_page.php">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search user">
-            <button class="btn btn-success" type="submit">Search</button>
-          </form>
+            <input #searchUser class="form-control form-control-gray mr-sm-2" type="text" placeholder="Search user">
         </div>
         &nbsp;
         <div class="p2">
-            <button class="btn btn-primary" (click)="onGetUsers()">Load all users</button>
+          <button class="btn btn-outline-secondary" (click)="onSearch(searchUser.value)">Search</button>
+        </div>
+        &nbsp;
+        <div class="p2">
+            <button class="btn btn-outline-secondary" (click)="onGetUsers()">Load all users</button>
         </div>
       </div>
       <br>
@@ -43,7 +44,7 @@
             <div class="btn-group btn-group-sm">
               <button type="button" class="btn btn-outline-secondary">View</button>
               <button type="button" class="btn btn-outline-secondary">Edit</button>
-              <button type="button" class="btn btn-outline-danger">Delete</button>
+              <button type="button" class="btn btn-outline-danger" (click)="onDeleteUser(user)">Delete</button>
             </div>
           </td>
         </tr>
@@ -51,5 +52,6 @@
       </table>
     </div>
   </div>
+  <router-outlet></router-outlet>
 </div>
 <app-end></app-end>

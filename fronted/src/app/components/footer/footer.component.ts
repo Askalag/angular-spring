@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-end',
-  templateUrl: './end.component.html',
-  styleUrls: ['./end.component.css']
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.css']
 })
-export class EndComponent implements OnInit {
+export class FooterComponent implements OnInit {
 
   constructor() { }
 

@@ -2,6 +2,7 @@ package com.askalag.angularspring.controller;
 
 import com.askalag.angularspring.entity.User;
 import com.askalag.angularspring.service.UserService;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -31,14 +32,18 @@ public class UserController {
         userService.updateUser(user);
     }
 
-    @DeleteMapping("/")
-    public void deleteUser(@RequestBody User user) {
-        userService.deleteUser(user);
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable String id) {
+        userService.deleteUserById(id);
     }
 
     @GetMapping("/")
     public Iterable<User> getAll() {
         return userService.getAll();
+    }
+    @GetMapping("/search")
+    public Iterable<User> search(@RequestParam("nickName") String nickName) {
+        return userService.getAllByNickName(nickName);
     }
     //for Test
     @GetMapping("/dropdb")

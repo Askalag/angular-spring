@@ -34,13 +34,19 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void deleteUser(User user) {
-        userRepository.delete(user);
+    public void deleteUserById(String id) {
+        userRepository.deleteUserById(id);
     }
 
     @Override
     public void dropCollection() {
         userRepository.dropCollection();
+    }
+
+    @Override
+    public Iterable<User> getAllByNickName(String nickName) {
+        Iterable<User> users = userRepository.getAllByNickName(nickName);
+        return users;
     }
 
 
