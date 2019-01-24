@@ -16,11 +16,15 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-
-    @GetMapping("/{login}")
-    public User getUserByLogin(@PathVariable String login) {
-        return userService.getUserByLogin(login);
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable String id) {
+        return userService.getUserById(id);
     }
+
+//    @GetMapping("/{login}")
+//    public User getUserByLogin(@PathVariable String login) {
+//        return userService.getUserByLogin(login);
+//    }
 
     @PostMapping("/")
     public void addUser(@Valid @RequestBody User user) {

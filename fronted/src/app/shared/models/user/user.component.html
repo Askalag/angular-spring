@@ -1,3 +1,47 @@
-<p>
-  user works!
-</p>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="d-flex align-items-center">
+          <div class="p2"><h2> User : {{user.nickName}}</h2></div>
+          <div class="p2 ml-auto"><h4><a class="badge badge-light" routerLink="/users">Edit</a></h4></div>
+          <div class="p2"><h5> | </h5></div>
+          <div class="p2"><h4><a class="badge badge-light" routerLink="/users">Back to list</a></h4></div>
+        </div>
+
+      </div>
+      <div class="card-body table-hover">
+        <div class="col-md-12">
+          <table class="table">
+            <tbody>
+            <tr>
+              <td width="75">ID</td>
+              <td width="15">:</td>
+              <td>{{user.id}}</td>
+            </tr>
+            <tr>
+              <td>Login</td>
+              <td>:</td>
+              <td>{{user.login}}</td>
+            </tr>
+            <tr>
+              <td>Age</td>
+              <td>:</td>
+              <td>{{user.age}}</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>:</td>
+              <td>{{user.email}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

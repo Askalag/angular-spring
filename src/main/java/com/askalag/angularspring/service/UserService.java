@@ -5,6 +5,7 @@ import com.askalag.angularspring.entity.User;
 public interface UserService {
 
     User getUserByLogin(String login);
+    User getUserById(String id);
     void addUser(User user);
     Iterable<User> getAll();
     void updateUser(User user);

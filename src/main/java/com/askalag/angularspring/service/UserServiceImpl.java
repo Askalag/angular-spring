@@ -19,6 +19,11 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public User getUserById(String id) {
+        return this.userRepository.getUserById(id);
+    }
+
+    @Override
     public void addUser(User user) {
         userRepository.insert(user);
     }
