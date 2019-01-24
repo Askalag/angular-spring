@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col">
       <br>
       <br>
       <br>
@@ -11,7 +11,7 @@
           <button class="btn btn-outline-secondary" routerLink="new">New User</button>
         </div>
         <div class="p2 ml-auto">
-            <input #searchUser class="form-control form-control-gray mr-sm-2" type="text" placeholder="Search user">
+            <input #searchUser class="form-control form-control-gray mr-sm-2" type="text" placeholder="Search NickName">
         </div>
         &nbsp;
         <div class="p2">
@@ -48,7 +48,6 @@
           <td>
             <div class="btn-group btn-group-sm">
               <button type="button" class="btn btn-outline-secondary" routerLink="{{user.id}}">View</button>
-              <button type="button" class="btn btn-outline-secondary" >Edit</button>
               <button type="button" class="btn btn-outline-danger" (click)="onDeleteUser(user)">Delete</button>
             </div>
           </td>
@@ -59,4 +58,4 @@
   </div>
 </div>
 <router-outlet></router-outlet>
-<app-end></app-end>
+<app-footer></app-footer>

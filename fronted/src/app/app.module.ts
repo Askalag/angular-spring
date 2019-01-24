@@ -12,11 +12,12 @@ import { HttpClientModule } from "@angular/common/http";
 import { UserAddComponent } from './components/user-add/user-add.component';
 import {FormsModule} from "@angular/forms";
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 const appRoutes: Routes = [
   { path: "usersList", component: UserListComponent},
-  //{ path: "", component: AppComponent},
+  { path: "", component: HomeComponent},
   { path: "users/new", component: UserAddComponent},
   { path: "users", component: UserListComponent},
   { path: "users/:id", component: UserComponent },
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     FooterComponent,
     UserAddComponent,
     UserAddComponent,
-    UserEditComponent
+    UserEditComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

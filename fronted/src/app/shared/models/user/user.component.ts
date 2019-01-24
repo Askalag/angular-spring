@@ -10,7 +10,9 @@ import {UserListService} from "../../../components/user-list/user-list.service";
 })
 export class UserComponent implements OnInit {
 
-  user: User = new User(null, "", "", 0, "", null);
+  isEdit: boolean = false;
+
+  user: User = new User( "", "", 0, "", null);
 
   constructor(private route: ActivatedRoute,
               private userService: UserListService) { }
@@ -22,6 +24,13 @@ export class UserComponent implements OnInit {
   getUser() {
     let id: string = this.route.snapshot.paramMap.get("id");
     this.userService.getUser(id).subscribe(data => this.user = data);
+  }
+  onSave() {
+    this.isEdit = false;
+    this.userService.updateUser(this.user).subscribe();
+  }
+  onEdit() {
+    this.isEdit = true;
   }
 
 }

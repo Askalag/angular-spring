@@ -1,20 +1,25 @@
 <br>
 <br>
 <br>
-<div class="container">
-  <div class="col-md-12">
+<div class="container-fluid">
+  <div class="row justify-content-center">
+  <div class="col">
     <div class="card">
       <div class="card-header">
         <div class="d-flex align-items-center">
           <div class="p2"><h2> User : {{user.nickName}}</h2></div>
-          <div class="p2 ml-auto"><h4><a class="badge badge-light" routerLink="/users">Edit</a></h4></div>
+          <div class="p2 ml-auto">
+            <h4><a class="badge badge-light" routerLink="/users/{{user.id}}" *ngIf="!isEdit" (click)="onEdit()">Edit</a></h4>
+          </div>
+          <div>
+            <h4><a class="badge badge-light" routerLink="/users/{{user.id}}" *ngIf="isEdit" (click)="onSave()">Save</a></h4>
+          </div>
           <div class="p2"><h5> | </h5></div>
           <div class="p2"><h4><a class="badge badge-light" routerLink="/users">Back to list</a></h4></div>
         </div>
-
       </div>
-      <div class="card-body table-hover">
-        <div class="col-md-12">
+      <div class="card-body" *ngIf="!isEdit">
+        <div class="col-md-3">
           <table class="table">
             <tbody>
             <tr>
@@ -41,7 +46,36 @@
           </table>
         </div>
       </div>
+      <div class="card-body" *ngIf="isEdit">
+        <div class="col-md-3">
+          <table class="table">
+            <tbody valign="baseline">
+            <tr valign="middle">
+              <td width="75">ID</td>
+              <td width="15">:</td>
+              <td><input class="form-control" [(ngModel)]="user.id" value="{{user.id}}" [disabled]="isEdit"></td>
+            </tr>
+            <tr>
+              <td>Login</td>
+              <td>:</td>
+              <td><input class="form-control" [(ngModel)]="user.login" value="{{user.login}}" [disabled]="!isEdit"></td>
+            </tr>
+            <tr>
+              <td>Age</td>
+              <td>:</td>
+              <td><input class="form-control" [(ngModel)]="user.age" value="{{user.age}}" [disabled]="!isEdit"></td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>:</td>
+              <td><input class="form-control" [(ngModel)]="user.email" value="{{user.email}}" [disabled]="!isEdit"></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
+  </div>
   </div>
 </div>
 
