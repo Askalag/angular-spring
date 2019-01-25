@@ -1,0 +1,123 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col">
+      <br>
+      <br>
+      <br>
+      <h2>User List</h2>
+      <div class="d-flex">
+        <div class="p2 align-self-center"></div>
+        <div class="p2 align-self-center">
+          <button class="btn btn-outline-secondary" routerLink="new">New User</button>
+        </div>
+        <div class="p2 ml-auto">
+            <input #searchUser class="form-control form-control-gray mr-sm-2" type="text" placeholder="Search NickName">
+        </div>
+        &nbsp;
+        <div class="p2">
+          <button class="btn btn-outline-secondary" (click)="onSearch(searchUser.value)">Search</button>
+        </div>
+        &nbsp;
+        <div class="p2">
+            <button class="btn btn-outline-secondary" (click)="onGetUsers()">Load all users</button>
+        </div>
+      </div>
+      <br>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Id</th>
+          <th>Login</th>
+          <th>NickName</th>
+          <th>Age</th>
+          <th>eMail</th>
+          <th>Created</th>
+          <th>Editing</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users; let i = index;">
+          <td>{{i + 1}}</td>
+          <td>{{user.id}}</td>
+          <td>{{user.login}}</td>
+          <td>{{user.nickName}}</td>
+          <td>{{user.age}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.date}}</td>
+          <td>
+            <div class="btn-group btn-group-sm">
+              <button type="button" class="btn btn-outline-secondary" routerLink="{{user.id}}">View</button>
+              <button type="button" class="btn btn-outline-danger" (click)="onDeleteUser(user)">Delete</button>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+
+<mat-form-field>
+  <input matInput (keyup)="onFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+  </ng-container>
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="login">
+    <th mat-header-cell *matHeaderCellDef> Login </th>
+    <td mat-cell *matCellDef="let element"> {{element.login}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="nickName">
+    <th mat-header-cell *matHeaderCellDef> NickName </th>
+    <td mat-cell *matCellDef="let element"> {{element.nickName}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="age">
+    <th mat-header-cell *matHeaderCellDef> Age </th>
+    <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="created">
+    <th mat-header-cell *matHeaderCellDef> Created </th>
+    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center">Action </th>
+    <td mat-cell *matCellDef="let element" style="text-align: center">
+      <button mat-button [matMenuTriggerFor]="menu">sfsdfsdf</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="edit(element._id)">Edit</button>
+        <button mat-menu-item (click)="gotoFamily(element)">Go to current family</button>
+        <button mat-menu-item (click)="createNewFam(element)">Create new family</button>
+        <button mat-menu-item (click)="onDeleteUser(element)">Delete</button>
+      </mat-menu>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

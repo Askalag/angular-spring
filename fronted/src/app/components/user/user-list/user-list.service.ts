@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import { HttpHeaders } from '@angular/common/http';
 
-import {User} from "../../shared/models/user/user.model";
+import {User} from "../user.model";
 import {Observable} from "rxjs";
 
 const httpOptions = {
