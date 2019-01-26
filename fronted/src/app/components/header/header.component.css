@@ -1,12 +1,7 @@
-.navbar {
-  padding-bottom: 1px;
-  padding-top: 1px;
-}
-.ach > a:hover {
-  color: red;
-}
-.ac a {
-  color: crimson;
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height: 45px;
 }
 
-
+.mat-toolbar-multiple-rows {
+  min-height: 47px;
+}

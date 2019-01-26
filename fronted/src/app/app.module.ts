@@ -15,15 +15,14 @@ import { HttpClientModule } from "@angular/common/http";
 import { UserAddComponent } from './components/user/user-add/user-add.component';
 import {FormsModule} from "@angular/forms";
 import { UserEditComponent } from './components/user/user-edit/user-edit.component';
-import { HomeComponent } from './components/home/home.component';
 
 
 const appRoutes: Routes = [
   { path: "usersList", component: UserListComponent},
-  { path: "", component: HomeComponent},
   { path: "users/new", component: UserAddComponent},
   { path: "users", component: UserListComponent},
   { path: "users/:id", component: UserComponent },
+
 ];
 
 @NgModule({
@@ -36,7 +35,6 @@ const appRoutes: Routes = [
     UserAddComponent,
     UserAddComponent,
     UserEditComponent,
-    HomeComponent
   ],
   imports: [
     BrowserModule,

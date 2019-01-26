@@ -22,15 +22,10 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserListService) { }
 
   ngOnInit(): void {
-
-  }
-
-  onGetUsers(): void {
     this.userService.getUsers().subscribe(resp => {
       this.ELEMENT_DATA = resp;
       this.dataSource.data = this.ELEMENT_DATA;
-    })
-
+    });
   }
 
   onDeleteUser(user: User) : void {
