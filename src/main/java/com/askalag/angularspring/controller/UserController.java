@@ -2,7 +2,6 @@ package com.askalag.angularspring.controller;
 
 import com.askalag.angularspring.entity.User;
 import com.askalag.angularspring.service.UserService;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -20,11 +19,6 @@ public class UserController {
     public User getUserById(@PathVariable String id) {
         return userService.getUserById(id);
     }
-
-//    @GetMapping("/{login}")
-//    public User getUserByLogin(@PathVariable String login) {
-//        return userService.getUserByLogin(login);
-//    }
 
     @PostMapping("/")
     public void addUser(@Valid @RequestBody User user) {
@@ -45,10 +39,7 @@ public class UserController {
     public Iterable<User> getAll() {
         return userService.getAll();
     }
-    @GetMapping("/search")
-    public Iterable<User> search(@RequestParam("nickName") String nickName) {
-        return userService.getAllByNickName(nickName);
-    }
+
     //for Test
     @GetMapping("/dropdb")
     public void dropUserCollection() {

@@ -8,14 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   navLinks = [
+    { label: "Home",
+      link: "",
+      index: 0
+    },
     {
       label: 'User List',
       link: 'users',
-      index: 0
+      index: 1
     }, {
       label: 'Add User',
       link: 'users/new',
-      index: 1
+      index: 2
     },
   ];
 

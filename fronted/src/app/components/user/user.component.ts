@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "./user.model";
 import {ActivatedRoute} from "@angular/router";
-import {UserListService} from "./user-list/user-list.service";
+import {UserService} from "./user.service";
 
 @Component({
   selector: 'app-user',
@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
   user: User = new User( "", "", 0, "", null);
 
   constructor(private route: ActivatedRoute,
-              private userService: UserListService) { }
+              private userService: UserService) { }
 
   ngOnInit(): void {
     this.getUser();

@@ -4,6 +4,8 @@ import com.askalag.angularspring.entity.User;
 import com.askalag.angularspring.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class UserServiceImpl implements UserService{
 
@@ -14,17 +16,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User getUserByLogin(String login) {
-        return userRepository.getUserByLogin(login);
-    }
-
-    @Override
     public User getUserById(String id) {
         return this.userRepository.getUserById(id);
     }
 
     @Override
     public void addUser(User user) {
+        user.setDate(new Date());
         userRepository.insert(user);
     }
 
@@ -47,12 +45,4 @@ public class UserServiceImpl implements UserService{
     public void dropCollection() {
         userRepository.dropCollection();
     }
-
-    @Override
-    public Iterable<User> getAllByNickName(String nickName) {
-        Iterable<User> users = userRepository.getAllByNickName(nickName);
-        return users;
-    }
-
-
 }

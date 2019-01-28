@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UserListService} from "./user-list.service";
+import {UserService} from "../user.service";
 import {MatTableDataSource} from "@angular/material";
 import {User} from "../user.model";
 
@@ -10,16 +10,16 @@ import {User} from "../user.model";
 })
 export class UserListComponent implements OnInit {
 
-  public ELEMENT_DATA: User[];
+  ELEMENT_DATA: User[];
 
-  displayedColumns: string[] = ['position', 'id', 'login', 'nickName', 'age', 'email', 'created', 'actions'];
+  displayedColumns: string[] = ['position', 'login', 'id', 'nickName', 'age', 'email', 'created', 'actions'];
   dataSource = new MatTableDataSource(this.ELEMENT_DATA);
 
   onFilter(filterValue: string): void {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  constructor(private userService: UserListService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe(resp => {

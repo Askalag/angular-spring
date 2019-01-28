@@ -1,18 +1,18 @@
 import {Injectable} from "@angular/core";
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import { HttpHeaders } from '@angular/common/http';
 
-import {User} from "../user.model";
+import {User} from "./user.model";
 import {Observable} from "rxjs";
 
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
   })
-}
+};
 
 @Injectable()
-export class UserListService {
+export class UserService {
 
   constructor(private http: HttpClient) {
 
@@ -32,15 +32,6 @@ export class UserListService {
   }
   updateUser(user: User) : Observable<User> {
     return this.http.put<User>("/api/users/", user, httpOptions)
-  }
-  userSearch(value: string) : Observable<User[]> {
-    value = value.trim();
-
-    // Add safe, URL encoded search parameter if there is a search term
-    const options = value ?
-      { params: new HttpParams().set('nickName', value) } : {};
-
-    return this.http.get<User[]>("/api/users/search", options)
   }
 
 }
